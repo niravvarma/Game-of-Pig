@@ -41,10 +41,20 @@ public class GameTest {
     }
 
     @Test
-    public void testGameOver_player1IsWinner() {
+    public void testGameWinner_player1IsWinner() {
         player1.setScore(100);
         game.endTurn();
         Assert.assertEquals(player1, game.getWinner());
+    }
+
+    /**
+     * This method throws error if getWinner is called before even game is finished
+     * Also called as Temporal Coupling in defensive programming: this method should only work
+     * when other methods are called first
+     */
+    @Test(expected = IllegalStateException.class)
+    public void testGetWinner_noWinner() {
+        game.getWinner();
     }
 
 }

@@ -35,6 +35,10 @@ public final class Game {
     }
 
     public Player getWinner() {
-        return this.winner;
+        if(!isOver()) {
+            throw new IllegalStateException("Game is not over yet");
+        } else {
+            return this.winner;
+        }
     }
 }
