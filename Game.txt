@@ -13,3 +13,10 @@ roll()[3] -> turn score is 3
 given score 3, roll()[4] -> turn score is 7
 player score 0, given score 10, bank() -> player score is 10
 roll()[1] -> turn score is zero
+
+Concepts
+---------
+- Red-Green testing
+- ZOI Principle
+- Vertical Slicing
+- Walking skeleton
