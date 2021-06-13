@@ -28,4 +28,16 @@ public class GameTest {
         Assert.assertEquals(player2, game.currentPlayer());
     }
 
+    @Test
+    public void testIsOver_initial() {
+        Assert.assertFalse(game.isOver());
+    }
+
+    @Test
+    public void testIsOver_player1Has100Points() {
+        player1.setScore(100);
+        game.endTurn();
+        Assert.assertTrue(game.isOver());
+    }
+
 }
