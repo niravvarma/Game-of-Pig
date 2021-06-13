@@ -1,0 +1,15 @@
+Engineering notebook: pair programming
+
+Top Level: Game
+----------------
+currentPlayer() -> player 1
+end turn(), currentPlayer() -> player 2
+player's 1 turn, player 1 has 100 points, end turn() -> game over, player 1 wins
+
+Scoring points: Turn
+---------------------
+score() -> zero
+roll()[3] -> turn score is 3
+given score 3, roll()[4] -> turn score is 7
+player score 0, given score 10, bank() -> player score is 10
+roll()[1] -> turn score is zero
