@@ -5,6 +5,7 @@ Top Level: Game
 currentPlayer() -> player 1
 end turn(), currentPlayer() -> player 2
 player's 1 turn, player 1 has 100 points, end turn() -> game over, player 1 wins
+getWinner() throw exception if no winner
 
 Scoring points: Turn
 ---------------------

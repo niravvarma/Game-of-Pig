@@ -40,4 +40,11 @@ public class GameTest {
         Assert.assertTrue(game.isOver());
     }
 
+    @Test
+    public void testGameOver_player1IsWinner() {
+        player1.setScore(100);
+        game.endTurn();
+        Assert.assertEquals(player1, game.getWinner());
+    }
+
 }

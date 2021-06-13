@@ -19,9 +19,15 @@ public final class ConsoleApplication {
         while(!game.isOver()) {
             System.out.println("It is " + game.currentPlayer().getName() + "'s turn");
             System.out.println("Press enter to go on");
-            scanner.nextLine();
+            String line = scanner.nextLine();
+            /* The following is kind of introducing cheat code in the game */
+            if(line.startsWith("!")) {
+                player1.setScore(100);
+            }
             game.endTurn();
         }
+
+        System.out.println("Game over: Winner is " + game.getWinner().getName());
     }
 
 }

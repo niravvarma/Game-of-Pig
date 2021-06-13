@@ -9,6 +9,7 @@ public final class Game {
     private final Player player2;
     private Player current;
     private boolean isOver = false;
+    private Player winner;
 
     public Game(Player player1, Player player2) {
         /* There should be null or error checks here */
@@ -23,6 +24,7 @@ public final class Game {
 
     public void endTurn() {
         if(this.current.getScore() >= POINTS_TO_WIN) {
+            this.winner = this.current;
             this.isOver = true;
         }
         this.current = this.current.equals(player1) ? player2 : player1;
@@ -30,5 +32,9 @@ public final class Game {
 
     public boolean isOver() {
         return isOver;
+    }
+
+    public Player getWinner() {
+        return this.winner;
     }
 }
