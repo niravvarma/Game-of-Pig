@@ -16,16 +16,20 @@ public final class ConsoleApplication {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the game of Pig");
+        Turn turn = new Turn(new RolledDie());
         while(!game.isOver()) {
-            System.out.println(player1 + "'s score is " + player1.getScore());
-            System.out.println(player2 + "'s score is " + player2.getScore());
+            System.out.println(player1.getName() + "'s score is " + player1.getScore());
+            System.out.println(player2.getName() + "'s score is " + player2.getScore());
             System.out.println("It is " + game.currentPlayer().getName() + "'s turn");
-            System.out.println("Press enter to go on");
+            System.out.println("Press enter to roll");
             String line = scanner.nextLine();
-            /* The following is kind of introducing cheat code in the game */
+            turn.roll();
+
+            /* The following is kind of introducing cheat code in the game
             if(line.startsWith("!")) {
                 player1.setScore(100);
             }
+             */
             game.endTurn();
         }
 

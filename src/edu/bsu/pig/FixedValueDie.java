@@ -1,6 +1,6 @@
 package edu.bsu.pig;
 
-public class FixedValueDie {
+public class FixedValueDie implements Die {
 
     private int value;
 
@@ -8,7 +8,7 @@ public class FixedValueDie {
         this.value = value;
     }
 
-    public int getValue() {
+    public int roll() {
         return  value;
     }
 }
