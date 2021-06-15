@@ -16,7 +16,7 @@ public final class ConsoleApplication {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the game of Pig");
-        Turn turn = new Turn(new RolledDie());
+        Turn turn = new Turn(player1, new RolledDie());
         while(!game.isOver()) {
             System.out.println(player1.getName() + "'s score is " + player1.getScore());
             System.out.println(player2.getName() + "'s score is " + player2.getScore());
