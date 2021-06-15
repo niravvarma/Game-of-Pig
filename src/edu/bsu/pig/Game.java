@@ -3,31 +3,37 @@ package edu.bsu.pig;
 public final class Game {
 
     private static final int POINTS_TO_WIN = 100;
+    private static final RolledDie DIE = new RolledDie();
 
     /* ZOI principle */
     private final Player player1;
     private final Player player2;
-    private Player current;
     private boolean isOver = false;
     private Player winner;
+    private Turn turn;
 
     public Game(Player player1, Player player2) {
         /* There should be null or error checks here */
         this.player1 = player1;
         this.player2 = player2;
-        this.current = player1;
+        this.turn = new Turn(player1, DIE);
     }
 
     public Player currentPlayer() {
-        return current;
+        return turn.getPlayer();
     }
 
     public void endTurn() {
-        if(this.current.getScore() >= POINTS_TO_WIN) {
-            this.winner = this.current;
+        turn.end();
+        if(currentPlayer().getScore() >= POINTS_TO_WIN) {
+            this.winner = currentPlayer();
             this.isOver = true;
         }
-        this.current = this.current.equals(player1) ? player2 : player1;
+        turn = new Turn(getNextPlayer(), DIE);
+    }
+
+    private Player getNextPlayer() {
+        return currentPlayer().equals(player1) ? player2 : player1;
     }
 
     public boolean isOver() {
@@ -40,5 +46,13 @@ public final class Game {
         } else {
             return this.winner;
         }
+    }
+
+    public void roll(){
+        turn.roll();
+    }
+
+    public Turn currentTurn() {
+        return turn;
     }
 }
