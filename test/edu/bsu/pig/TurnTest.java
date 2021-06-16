@@ -53,4 +53,39 @@ public class TurnTest {
         Assert.assertEquals(10, turn.getPlayer().getScore());
     }
 
+    @Test
+    public void testRoll_rollOneWithSomeScore_turnScoreBecomesZero(){
+        Turn turn = makeTurnWithFixedDieValue(1);
+        turn.setScore(10);
+        turn.roll();
+        Assert.assertEquals(0, turn.getScore());
+    }
+
+    @Test
+    public void testIsOver_initiallyFalse(){
+        Turn turn = makeTurnWithFixedDieValue(1);
+        Assert.assertFalse(turn.isOver());
+    }
+
+    @Test
+    public void testIsOver_rollOne_true(){
+        Turn turn = makeTurnWithFixedDieValue(1);
+        turn.roll();
+        Assert.assertTrue(turn.isOver());
+    }
+
+    @Test
+    public void testIsOver_rollTwo_false(){
+        Turn turn = makeTurnWithFixedDieValue(2);
+        turn.roll();
+        Assert.assertFalse(turn.isOver());
+    }
+
+    @Test
+    public void testIsOver_endTurn_true(){
+        Turn turn = makeTurnWithFixedDieValue(2);
+        turn.end();
+        Assert.assertTrue(turn.isOver());
+    }
+
 }

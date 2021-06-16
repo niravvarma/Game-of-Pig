@@ -1,10 +1,10 @@
 package edu.bsu.pig;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public final class RolledDie implements Die {
 
-    private static final Random RANDOM = new Random();
+    private static final SecureRandom RANDOM = new SecureRandom();
 
     @Override
     public int roll() {
